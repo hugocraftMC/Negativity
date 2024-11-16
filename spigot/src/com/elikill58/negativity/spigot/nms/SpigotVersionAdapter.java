@@ -48,14 +48,15 @@ public abstract class SpigotVersionAdapter extends VersionAdapter<Player> {
 
 			getPlayerHandle = PacketUtils.getObcClass("entity.CraftPlayer").getDeclaredMethod("getHandle");
 
-			Class<?> entityPlayerClass = PacketUtils.getNmsClass(SubPlatform.getSubPlatform().equals(SubPlatform.FOLIA) ? "ServerPlayer" : "EntityPlayer", "server.level.");
-			if (version.isNewerOrEquals(Version.V1_20)) {
-				playerConnectionField = entityPlayerClass.getDeclaredField(SubPlatform.getSubPlatform().equals(SubPlatform.FOLIA) ? "connection" : "c");
-			} else if (version.isNewerOrEquals(Version.V1_17)) {
+			Class<?> entityPlayerClass = PacketUtils.getNmsClass("EntityPlayer", "server.level.");
+			if(SubPlatform.getSubPlatform().equals(SubPlatform.FOLIA) || version.isNewerOrEquals(Version.V1_21_3)) {
+				playerConnectionField = PacketUtils.getNmsClass("ServerPlayer", "server.level.").getDeclaredField("connection");
+			} else if (version.isNewerOrEquals(Version.V1_20))
+				playerConnectionField = entityPlayerClass.getDeclaredField("c");
+			else if (version.isNewerOrEquals(Version.V1_17))
 				playerConnectionField = entityPlayerClass.getDeclaredField("b");
-			} else {
+			else
 				playerConnectionField = entityPlayerClass.getDeclaredField("playerConnection");
-			}
 			Class<?> bbClass = PacketUtils.getNmsClass(SubPlatform.getSubPlatform().equals(SubPlatform.FOLIA) ? "AABB" : "AxisAlignedBB", "world.phys.");
 
 			if (version.isNewerOrEquals(Version.V1_13) && hasMinField(bbClass)) {
@@ -323,7 +324,9 @@ public abstract class SpigotVersionAdapter extends VersionAdapter<Player> {
 				return instance = new Spigot_1_20_R3();
 			case "v1_20_R4":
 				return instance = new Spigot_1_20_R4();
-			case "": // 1.20.6 or upper
+			case "v1_20_6": // 1.20.6 or upper
+			case "v1_21_1":
+			case "v1_21_3":
 				return instance = new Spigot_1_21_R1();
 			default:
 				return instance = new Spigot_UnknowVersion(Adapter.getAdapter().getVersion());

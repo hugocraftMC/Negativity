@@ -15,7 +15,7 @@ public class Version1_13 extends NamedVersion {
 		for (Client type : Arrays.asList(Client.TELEPORT_ACCEPT, Client.TILE_NBT_QUERY, Client.CHAT, Client.CLIENT_COMMAND, Client.SETTINGS, Client.TAB_COMPLETE, Client.PONG,
 				Client.ENCHANT_ITEM, Client.WINDOW_CLICK, Client.CLOSE_WINDOW, Client.CUSTOM_PAYLOAD, Client.BEDIT, Client.ENTITY_NBT_QUERY, Client.USE_ENTITY, Client.KEEP_ALIVE,
 				Client.FLYING, Client.POSITION, Client.POSITION_LOOK, Client.LOOK, Client.VEHICLE_MOVE, Client.BOAT_MOVE, Client.PICK_ITEM, Client.AUTO_RECIPE, Client.ABILITIES,
-				Client.BLOCK_DIG, Client.ENTITY_ACTION, Client.STEER_VEHICLE, Client.RECIPE_DISPLAYED, Client.ITEM_NAME, Client.RESOURCE_PACK_STATUS, Client.ADVANCEMENTS, Client.TR_SEL,
+				Client.BLOCK_DIG, Client.ENTITY_ACTION, Client.STEER_VEHICLE, Client.RECIPE_DISPLAYED, Client.ITEM_NAME, Client.RESOURCE_PACK_STATUS, Client.ADVANCEMENTS, Client.TRADE_SELECT,
 				Client.BEACON, Client.HELD_ITEM_SLOT, Client.SET_COMMAND_BLOCK, Client.SET_COMMAND_MINECART, Client.SET_CREATIVE_SLOT, Client.STRUCT, Client.UPDATE_SIGN,
 				Client.ARM_ANIMATION, Client.SPECTATE, Client.BLOCK_PLACE, Client.USE_ITEM)) {
 			playIn.put(i++, type);

@@ -24,7 +24,7 @@ public class Version1_20_6 extends NamedVersion {
 				Client.PICK_ITEM, Client.PING, Client.AUTO_RECIPE, Client.ABILITIES, Client.BLOCK_DIG,
 				Client.ENTITY_ACTION, Client.STEER_VEHICLE, Client.PONG, Client.RECIPE_SETTINGS,
 				Client.RECIPE_DISPLAYED, Client.ITEM_NAME, Client.RESOURCE_PACK_STATUS, Client.ADVANCEMENTS,
-				Client.TR_SEL, Client.BEACON, Client.HELD_ITEM_SLOT, Client.SET_COMMAND_BLOCK,
+				Client.TRADE_SELECT, Client.BEACON, Client.HELD_ITEM_SLOT, Client.SET_COMMAND_BLOCK,
 				Client.SET_COMMAND_MINECART, Client.SET_CREATIVE_SLOT, Client.SET_JIGSAW, Client.STRUCT,
 				Client.UPDATE_SIGN, Client.ARM_ANIMATION, Client.SPECTATE, Client.USE_ITEM, Client.BLOCK_PLACE)) {
 			playIn.put(i++, type);

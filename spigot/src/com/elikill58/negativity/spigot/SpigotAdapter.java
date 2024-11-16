@@ -6,6 +6,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import java.util.function.BiConsumer;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import org.bukkit.Bukkit;
@@ -58,10 +60,22 @@ public class SpigotAdapter extends Adapter {
 	private final LoggerAdapter logger;
 	private final SpigotItemRegistrar itemRegistrar;
 	private final Scheduler scheduler;
+	private String version;
 	private Configuration config;
 
 	public SpigotAdapter(JavaPlugin pl) {
 		this.pl = pl;
+		String REGEX = "MC: (\\d+\\.\\d+(\\.\\d+)?)";
+
+		version = Utils.getInternalVersion();
+		if(version.equalsIgnoreCase("")) {
+	        try {
+		        Matcher matcher = Pattern.compile(REGEX).matcher(Bukkit.getVersion());
+	            if (matcher.find()) {
+	                version = "v" + matcher.group(1).replace(".", "_");
+	            }
+	        } catch (IllegalArgumentException ignored){}
+		}        
 		this.config = UniversalUtils.loadConfig(new File(pl.getDataFolder(), "config.yml"), "config.yml");
 		this.translationProviderFactory = new NegativityTranslationProviderFactory(
 				pl.getDataFolder().toPath().resolve("lang"), "Negativity", "CheatHover");
@@ -97,17 +111,10 @@ public class SpigotAdapter extends Adapter {
 
 	@Override
 	public String getVersion() {
-		String[] parts = Bukkit.getServer().getClass().getPackage().getName().replace(".", ",").split(",");
+		/*String[] parts = Bukkit.getServer().getClass().getPackage().getName().replace(".", ",").split(",");
 		if(parts.length > 3)
-			return parts[3];
-		/*try {
-			Object mcVersion = Bukkit.class.getDeclaredMethod("getMinecraftVersion").invoke(null);
-			return mcVersion.toString().replace(".", "_");
-		} catch (Exception e) {
-			getLogger().warn("Failed to get minecraft version");
-			e.printStackTrace();
-		}*/
-		return "";
+			return parts[3];*/
+		return version;
 	}
 	
 	@Override

@@ -25,7 +25,7 @@ public class PacketUtils {
 	
 	private static boolean isNewSystem() {
 		try {
-			Class.forName("net.minecraft.server." + Adapter.getAdapter().getVersion() + ".MinecraftServer");
+			Class.forName("net.minecraft.server." + Utils.getInternalVersion() + ".MinecraftServer");
 			return false;
 		} catch (Exception e) {
 		}
@@ -84,7 +84,7 @@ public class PacketUtils {
 		synchronized (ALL_CLASS) {
 			return ALL_CLASS.computeIfAbsent(name, (s) -> {
 				try {
-					String version = Adapter.getAdapter().getVersion();
+					String version = Utils.getInternalVersion();
 					return Class.forName("org.bukkit.craftbukkit." + (version.equalsIgnoreCase("") ? "" : version + ".") + name);
 				} catch (Exception e) {
 					e.printStackTrace();
