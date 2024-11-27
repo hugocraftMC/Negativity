@@ -325,6 +325,7 @@ public abstract class SpigotVersionAdapter extends VersionAdapter<Player> {
 			case "v1_20_R4":
 				return instance = new Spigot_1_20_R4();
 			case "v1_20_6": // 1.20.6 or upper
+			case "v1_21":
 			case "v1_21_1":
 			case "v1_21_3":
 				return instance = new Spigot_1_21_R1();
