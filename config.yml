@@ -17,7 +17,7 @@ commands:
   # Disable or enable commands
   
   # Enable /nreport: (Alias: /report)
-  report: true
+  report: false
 
   # Enable /nkick: (Alias: /kick)
   kick: true
@@ -26,7 +26,7 @@ commands:
   mod: true
 
   # Enable /nlang: (Alias: /lang)
-  lang: true
+  lang: false
 
 # /report cooldown in milliseconds
 # -1 to disable cooldown
@@ -204,10 +204,10 @@ ban:
   active: false
 
   # Enable /nban: (Alias: /ban)
-  ban-command-enabled: false
+  ban-command-enabled: true
 
   # Enable /nunban (Alias: /unban)
-  unban-command-enabled: false
+  unban-command-enabled: true
 
   # Processors manage how bans are stored. Only one processor can be used at the time.
   # Available processors :
@@ -358,7 +358,7 @@ cheats:
     isActive: true
     reliability_alert: 60
     setBack: false
-    kick: false
+    kick: true
     alert_to_kick: 5
     check_in_verif: true
 
@@ -383,7 +383,7 @@ cheats:
     isActive: true
     reliability_alert: 60
     setBack: false
-    kick: false
+    kick: true
     alert_to_kick: 5
     check_in_verif: true
 
@@ -419,7 +419,7 @@ cheats:
     isActive: true
     reliability_alert: 60
     setBack: false
-    kick: false
+    kick: true
     alert_to_kick: 5
     check_in_verif: true
 
@@ -442,7 +442,7 @@ cheats:
     isActive: true
     reliability_alert: 60
     setBack: false
-    kick: false
+    kick: true
     alert_to_kick: 5
     check_in_verif: true
 
@@ -475,7 +475,7 @@ cheats:
     isActive: true
     reliability_alert: 60
     setBack: false
-    kick: false
+    kick: true
     alert_to_kick: 5
     check_in_verif: true
 
@@ -666,7 +666,7 @@ cheats:
     isActive: true
     reliability_alert: 60
     setBack: false
-    kick: false
+    kick: true
     alert_to_kick: 5
     check_in_verif: true
     max_variation: 7
@@ -680,7 +680,7 @@ cheats:
     server_crash:
       name: "Server Crasher"
       kick: true
-      ban: false
+      ban: true
       # The time of the ban, in milliseconds.
       # Default: 2629800000 (1 month)
       ban_time: 2629800000
